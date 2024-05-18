@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="..//css/style.css" />
+  </head>
+  <body>
+    <div class="main min-h-screen bg-zinc-900 p-10">
+      <div class="form text-white p-10">
+        <form action="/create" method="POST">
+          <input
+            class="block px-5 py-3 bg-zinc-800 w-full rounded-xl"
+            type="text"
+            name="title"
+            placeholder="Enter Your Name"
+            class="input"
+          />
+
+          <textarea
+            class="block px-5 py-2 bg-zinc-800 resize-none mt-3 w-full rounded-xl"
+            placeholder="Enter Your Message"
+            class="input"
+            name="details"
+          ></textarea>
+
+          <input
+            class="block px-5 py-2 bg-sky-800 resize-none mt-3 ml-2 rounded-md"
+            type="submit"
+            value="Create Task"
+          />
+        </form>
+      </div>
+
+      <div class="tasks flex gap-3 justify-center items-center flex-wrap p-10">
+        <% if(files.length > 0) { %> <% files.forEach(function (val){ %>
+        <div class="task min-w-72 px-3 text-white py-4 rounded-md bg-zinc-800">
+          <h1 class="text-xl tracking-tighter font-semibold"><%= val %></h1>
+          <div class="flex p-1 justify-between">
+            <a
+              class="text-xs text-blue-500 inline-block mt-3 text-blue-300"
+              href="/file/<%= val %>"
+              >Read More</a
+            >
+            <a
+              class="text-xs text-blue-500 inline-block mt-3 text-blue-300"
+              href="/edit/<%= val %>"
+              >Edit Task</a
+            >
+            <a
+              class="text-xs text-blue-500 inline-block mt-3 text-blue-300"
+              href="/delete/<%= val %>"
+              >Delete Task</a
+            >
+          </div>
+        </div>
+        <% }) %> <% } else { %>
+        <h3 class="text-zinc-600 font-bold">No Tasks Yet...</h3>
+        <% } %>
+
+        <!-- <div class="task w-72 px-3 text-white py-4 rounded-md bg-zinc-800">
+            <h1 class="text-xl tracking-tighter font-semibold">Task</h1>
+            <a class="text-xs text-blue-500 inline-block mt-3  text-blue-300" href="#">Read More</a>
+        </div> -->
+
+        <!-- <h3 class="text-zinc-600 font-bold">No Tasks Yet...</h3> -->
+      </div>
+    </div>
+  </body>
+</html>

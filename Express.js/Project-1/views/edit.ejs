@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="..//css/style.css" />
+  </head>
+  <body>
+    <div class="main min-h-screen bg-zinc-900 p-10 text-white">
+      <a class="inline-block mb-5 text-blue-500 px-3 py-2" href="/">Go Back</a>
+      <form action="/edit" method="POST">
+        <input
+          class="block px-5 py-3 bg-zinc-800 w-1/4 rounded-xl"
+          type="text"
+          name="previous"
+          placeholder="previous name"
+          class="input"
+          value="<%= filename %>"
+        />
+
+        <input
+          class="block px-5 py-3 bg-zinc-800 w-1/4 mt-2 rounded-xl"
+          type="text"
+          name="new"
+          placeholder="new name"
+          class="input"
+        />
+
+        <input
+          class="block px-5 py-2 bg-sky-800 resize-none mt-3 ml-2 rounded-md"
+          type="submit"
+          value="edit Task"
+        />
+      </form>
+    </div>
+  </body>
+</html>
