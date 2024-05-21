@@ -76,6 +76,13 @@ app.post('/update/:id', isLoggedIn, async (req, res) => {
     res.redirect('/profile');
 });
 
+// delete a post 
+
+app.get('/delete/:id', async (req, res) => {
+    let post = await postModel.findOneAndDelete({ _id: req.params.id }, { content: req.body.content });
+    res.redirect('/profile');
+})
+
 // profile pic
 app.get('/profile/upload', (req, res) => {
     res.render('upload')
